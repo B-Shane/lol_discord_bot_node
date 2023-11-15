@@ -42,7 +42,7 @@ client.on("messageCreate", message => {
     if(message.content.indexOf("!lol")!=-1){
       const lol = message.content.substring(4,message.content.length);
       console.log(lol);
-      https.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + lol + '?api_key=RGAPI-90243647-b692-4263-bb9a-1c8bc6ca2f5b', (resp) => {
+      https.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + lol + '?api_key='+riotApiKey, (resp) => {
 
         resp.on('data', (d) => {
          
@@ -61,7 +61,7 @@ client.login(discordKey);
 function getLatestMatch(puId){
 
   //console.log(puId);
-    https.get('https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puId+ '/ids?start=0&count=20&api_key=RGAPI-90243647-b692-4263-bb9a-1c8bc6ca2f5b', (res) => {
+    https.get('https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puId+ '/ids?start=0&count=20&api_key='+riotApiKey, (res) => {
         console.log('statusCode:', res.statusCode);
         
         
